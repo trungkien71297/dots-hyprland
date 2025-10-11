@@ -10,10 +10,13 @@ add_newline = false
 # $cmd_duration$username$hostname $directory $git_branch
 # $character
 # """
+# format = """
+# $cmd_duration 󰜥 $directory $git_branch $git_status
+# $character"""
 format = """
-$cmd_duration 󰜥 $directory $git_branch
-$character"""
-
+$username$hostname $directory $git_branch$git_status$git_state$fill$status$cmd_duration$time
+$character
+"""
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
 success_symbol = "[   ](bold fg:blue)"
@@ -36,12 +39,18 @@ tag_symbol = " "
 
 [git_state]
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold red)"
+rebase = "󰑓 rebase"
+merge = "󰽜 merge"
+revert = "󰜺 revert"
+cherry_pick = " pick"
+bisect = "󰓷 bisect"
+am = "󰆉 am"
+am_or_rebase = "󰑓/󰆉"
 
 [git_status]
 conflicted = " 🏳 "
-ahead = " 🏎💨 "
-behind = " 😰 "
+ahead = " $count 🏎💨 "
+behind = " $count 😰 "
 diverged = " 😵 "
 untracked = " 🤷 ‍"
 stashed = " 📦 "
@@ -66,9 +75,11 @@ symbol = " "
 style = "bold dimmed green"
 
 [time]
-disabled = true
-format = '🕙[\[ $time \]]($style) '
-time_format = "%T"
+disabled = false
+# format = '🕙[\[ $time \]]($style) '
+# time_format = "%T"
+time_format = "%H:%M"
+format = ' [ ](bold fg:magenta)[󰥔 $time]($style)[ ](bold fg:magenta)'
 
 [username]
 style_user = "bold bg:cyan fg:black"
