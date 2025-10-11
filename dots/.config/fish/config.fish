@@ -24,5 +24,5 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias ls 'eza --icons'
     alias pamcan pacman
     alias q 'qs -c ii'
-    
+    source $HOME/peemoti_config/fish_config.fish   
 end
