@@ -28,4 +28,5 @@ if status is-interactive
         alias ls 'eza --icons'
     end
     
+    source $HOME/peemoti_config/fish_config.fish   
 end
