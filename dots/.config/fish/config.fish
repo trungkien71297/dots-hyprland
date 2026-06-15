@@ -30,4 +30,6 @@ if status is-interactive
     if test "$TERM" = "xterm-kitty"
         alias ssh 'kitten ssh'
     end
+    
+    source $HOME/peemoti_config/fish_config.fish   
 end
